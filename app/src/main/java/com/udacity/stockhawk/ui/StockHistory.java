@@ -38,11 +38,11 @@ String historyString=getIntent().getStringExtra("history");
         }
         XAxis x=chart.getXAxis();
         x.setValueFormatter(new MyXAxisValueFormatter(fullHistory));
-        LineDataSet dataSet = new LineDataSet(entries, "Stock History"); // add entries to dataset
+        LineDataSet dataSet = new LineDataSet(entries, getResources().getString(R.string.graph_name)); // add entries to dataset
         LineData lineData = new LineData(dataSet);
         chart.setData(lineData);
         chart.invalidate(); // refresh
-        setTitle(getIntent().getStringExtra("symbol")+" History");
+        setTitle(getIntent().getStringExtra("symbol")+getResources().getString(R.string.history));
     }
 }
  class MyXAxisValueFormatter implements IAxisValueFormatter {

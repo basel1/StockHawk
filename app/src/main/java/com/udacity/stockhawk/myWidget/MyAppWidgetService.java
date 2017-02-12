@@ -11,9 +11,7 @@ import android.widget.RemoteViewsService;
 public class MyAppWidgetService extends RemoteViewsService{
     @Override
     public RemoteViewsFactory onGetViewFactory(Intent intent) {
-        int a=5;
-        a++;
-        Log.d("my trace","in remote view service");
+
         return new WidgetListAdapter(getApplicationContext(),intent);
     }
 }
