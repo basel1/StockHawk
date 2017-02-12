@@ -5,7 +5,7 @@
 
     <string name="pref_stocks_key">stocks</string>
 
-
+    <string name="Invalid_Stock_symbol">Sorry but the symbol you entered is incorrect</string>
     <string name="pref_display_mode_key">displayMode</string>
     <string name="pref_display_mode_default">@string/pref_display_mode_percentage_key</string>
 
@@ -31,5 +31,7 @@
 
     <string name="toast_stock_added_no_connectivity">Symbol %s added. Will refresh when network available.</string>
     <string name="toast_no_connectivity">Will refresh when network available.</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 
 </resources>
