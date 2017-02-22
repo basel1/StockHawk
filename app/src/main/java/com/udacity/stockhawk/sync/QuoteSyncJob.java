@@ -76,6 +76,8 @@ public final class QuoteSyncJob {
 
 
                 Stock stock = quotes.get(symbol);
+                if(stock!=null)
+                {
                 StockQuote quote = stock.getQuote();
                 if (quote.getPrice() != null) {
                     float price = quote.getPrice().floatValue();
@@ -109,6 +111,9 @@ public final class QuoteSyncJob {
 
                 Toast.makeText(context, R.string.Invalid_Stock_symbol,Toast.LENGTH_LONG).show();
 
+            }
+                else
+                    Toast.makeText(context, R.string.Invalid_Stock_symbol,Toast.LENGTH_LONG).show();
             }
 
             context.getContentResolver()
