@@ -1,5 +1,6 @@
 package com.udacity.stockhawk.ui;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -37,6 +38,9 @@ String historyString=getIntent().getStringExtra("history");
             entries.add(new Entry(i-1,Float.parseFloat(fullHistory[i])));
         }
         XAxis x=chart.getXAxis();
+        x.setTextColor(Color.WHITE);
+        chart.setBorderColor(Color.BLUE);
+        chart.setBackgroundColor(Color.LTGRAY);
         x.setValueFormatter(new MyXAxisValueFormatter(fullHistory));
         LineDataSet dataSet = new LineDataSet(entries, getResources().getString(R.string.graph_name)); // add entries to dataset
         LineData lineData = new LineData(dataSet);

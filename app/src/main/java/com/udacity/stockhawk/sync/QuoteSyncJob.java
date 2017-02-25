@@ -8,6 +8,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Handler;
+import android.os.Looper;
 import android.widget.Toast;
 
 import com.udacity.stockhawk.R;
@@ -108,12 +110,12 @@ public final class QuoteSyncJob {
 
                     quoteCVs.add(quoteCV);
                 } else
+alert(context);
 
-                Toast.makeText(context, R.string.Invalid_Stock_symbol,Toast.LENGTH_LONG).show();
 
             }
                 else
-                    Toast.makeText(context, R.string.Invalid_Stock_symbol,Toast.LENGTH_LONG).show();
+                    alert(context);
             }
 
             context.getContentResolver()
@@ -128,7 +130,16 @@ public final class QuoteSyncJob {
             Timber.e(exception, "Error fetching stock quotes");
         }
     }
-
+private static void alert(final Context c)
+{
+    Handler handler = new Handler(Looper.getMainLooper());
+    handler.post(new Runnable() {
+        @Override
+        public void run() {
+            Toast.makeText(c, R.string.Invalid_Stock_symbol,Toast.LENGTH_LONG).show();
+        }
+    });
+}
     private static void schedulePeriodic(Context context) {
         Timber.d("Scheduling a periodic task");
 
